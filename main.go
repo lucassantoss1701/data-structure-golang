@@ -2,27 +2,18 @@ package main
 
 import (
 	"fmt"
-	orderedvectors "lucassantos1701/data-structure-golang/ordered-vectors"
+	"lucassantos1701/data-structure-golang/stack"
 )
 
 func main() {
-	vector := orderedvectors.NewUnorderedVector(10)
-	vector.Insert(3)
-	vector.Insert(7)
-	vector.Insert(5)
-	vector.Insert(3)
+	stack := stack.NewStack(10)
 
-	vector.Print()
+	stack.Push(4)
+	stack.Push(5)
+	stack.Push(6)
 
-	fmt.Println("--------")
-	fmt.Println(vector.Find(7))
-	fmt.Println("--------")
+	stack.Pop()
+	stack.Pop()
 
-	vector.Delete(3)
-
-	vector.Print()
-	fmt.Println("--------")
-
-	fmt.Println(vector.Find(7))
-
+	fmt.Println(stack.GetTop())
 }
