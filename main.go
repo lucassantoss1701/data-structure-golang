@@ -2,18 +2,28 @@ package main
 
 import (
 	"fmt"
-	"lucassantos1701/data-structure-golang/stack"
+	"lucassantos1701/data-structure-golang/queue"
 )
 
 func main() {
-	stack := stack.NewStack(10)
+	queue := queue.NewCircularQueue(5)
 
-	stack.Push(4)
-	stack.Push(5)
-	stack.Push(6)
+	queue.Enqueue(5)
+	queue.Enqueue(6)
 
-	stack.Pop()
-	stack.Pop()
+	fmt.Println(queue.GetFirst())
+	queue.Dequeue()
+	fmt.Println(queue.GetFirst())
+	queue.Dequeue()
+	queue.Enqueue(4)
+	queue.Enqueue(6)
+	fmt.Println(queue.GetFirst())
+	queue.Dequeue()
+	fmt.Println(queue.GetFirst())
+	queue.Enqueue(3)
 
-	fmt.Println(stack.GetTop())
+	queue.Dequeue()
+	fmt.Println(queue.GetFirst())
+	queue.Dequeue()
+
 }
