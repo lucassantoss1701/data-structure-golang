@@ -31,7 +31,7 @@ func (u *UnorderedVector) Print() {
 
 // O(1) - O(2)
 func (u *UnorderedVector) Insert(value int) {
-	if u.LastPosition == len(u.Values)-1 {
+	if u.LastPosition == u.Capacity-1 {
 		fmt.Println("maximum capacity reached")
 	} else {
 		u.LastPosition += 1
@@ -39,19 +39,30 @@ func (u *UnorderedVector) Insert(value int) {
 	}
 }
 
-// O(n)
-func (u *UnorderedVector) Find(value int) int {
-	for i := 0; i < u.LastPosition+1; i++ {
-		if value == u.Values[i] {
-			return i
+// O(log n)
+func (u *UnorderedVector) FindUsingBinarySearch(value int) int {
+	inferiorLimit := 0
+	upperLimit := u.LastPosition
+	for {
+		actualPosition := int((inferiorLimit + upperLimit) / 2)
+
+		if u.Values[actualPosition] == value {
+			return actualPosition
+		} else if inferiorLimit > upperLimit {
+			return -1
+		} else {
+			if u.Values[actualPosition] < value {
+				inferiorLimit = actualPosition + 1
+			} else {
+				upperLimit = inferiorLimit - 1
+			}
 		}
 	}
-	return -1
 }
 
+// O(n)
 func (u *UnorderedVector) Delete(value int) int {
-
-	position := u.Find(value)
+	position := u.FindUsingBinarySearch(value)
 	if position == -1 {
 		return -1
 	}

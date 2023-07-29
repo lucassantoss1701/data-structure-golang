@@ -2,23 +2,27 @@ package main
 
 import (
 	"fmt"
-	unorderedvectors "lucassantos1701/data-structure-golang/unordered-vectors"
+	orderedvectors "lucassantos1701/data-structure-golang/ordered-vectors"
 )
 
 func main() {
-	vector := unorderedvectors.NewUnorderedVector(3)
-	vector.Insert(2)
+	vector := orderedvectors.NewUnorderedVector(10)
 	vector.Insert(3)
-	vector.Insert(4)
+	vector.Insert(7)
+	vector.Insert(5)
+	vector.Insert(3)
 
 	vector.Print()
 
-	vector.Delete(4)
+	fmt.Println("--------")
+	fmt.Println(vector.Find(7))
+	fmt.Println("--------")
 
-	fmt.Println("-------------")
+	vector.Delete(3)
+
 	vector.Print()
-	fmt.Println("-------------")
+	fmt.Println("--------")
 
-	fmt.Println(vector.Find(2))
+	fmt.Println(vector.Find(7))
 
 }
