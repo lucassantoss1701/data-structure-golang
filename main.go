@@ -2,22 +2,15 @@ package main
 
 import (
 	"fmt"
-	"lucassantos1701/data-structure-golang/queue"
+	"lucassantos1701/data-structure-golang/lists"
 )
 
 func main() {
-	queue := queue.NewPriorityQueue(5)
+	list := lists.NewSimpleList()
 
-	queue.Enqueue(5)
-	queue.Enqueue(6)
-	queue.Enqueue(2)
-	queue.Enqueue(9)
-	queue.Enqueue(1)
+	list.AddOnInit(3)
 
-	fmt.Println(queue)
-
-	queue.Dequeue()
-	queue.Dequeue()
-	fmt.Println(queue)
+	list.Print()
+	fmt.Println(list.First)
 
 }
