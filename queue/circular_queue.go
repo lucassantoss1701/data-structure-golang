@@ -12,10 +12,11 @@ type CircularQueue struct {
 
 func NewCircularQueue(capacity int) *CircularQueue {
 	return &CircularQueue{
-		Capacity: capacity,
-		Init:     0,
-		Final:    -1,
-		Values:   make([]int, capacity),
+		Capacity:         capacity,
+		Init:             0,
+		Final:            -1,
+		NumberOfElements: 0,
+		Values:           make([]int, capacity),
 	}
 }
 

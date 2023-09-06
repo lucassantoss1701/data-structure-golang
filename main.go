@@ -6,24 +6,18 @@ import (
 )
 
 func main() {
-	queue := queue.NewCircularQueue(5)
+	queue := queue.NewPriorityQueue(5)
 
 	queue.Enqueue(5)
 	queue.Enqueue(6)
+	queue.Enqueue(2)
+	queue.Enqueue(9)
+	queue.Enqueue(1)
 
-	fmt.Println(queue.GetFirst())
-	queue.Dequeue()
-	fmt.Println(queue.GetFirst())
-	queue.Dequeue()
-	queue.Enqueue(4)
-	queue.Enqueue(6)
-	fmt.Println(queue.GetFirst())
-	queue.Dequeue()
-	fmt.Println(queue.GetFirst())
-	queue.Enqueue(3)
+	fmt.Println(queue)
 
 	queue.Dequeue()
-	fmt.Println(queue.GetFirst())
 	queue.Dequeue()
+	fmt.Println(queue)
 
 }
