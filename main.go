@@ -1,16 +1,21 @@
 package main
 
-import (
-	"fmt"
-	"lucassantos1701/data-structure-golang/lists"
-)
+import "lucassantos1701/data-structure-golang/linkedlist"
 
 func main() {
-	list := lists.NewSimpleList()
 
-	list.AddOnInit(3)
+	myLinkedlist := linkedlist.NewLinkedList()
+	myLinkedlist.Insert(4)
+	myLinkedlist.Insert(5)
+	myLinkedlist.Insert(2)
+	myLinkedlist.Insert(6)
+	myLinkedlist.Insert(7)
+	myLinkedlist.Insert(8)
 
-	list.Print()
-	fmt.Println(list.First)
+	myLinkedlist.Print()
+
+	myLinkedlist.Reverse()
+
+	myLinkedlist.Print()
 
 }
